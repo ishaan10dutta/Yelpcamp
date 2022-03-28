@@ -8,8 +8,8 @@ const { cloudinary } = require("../cloudinary");
 module.exports.index = async (req, res) => {
     const campgrounds = await Campground.find({}).populate({
         path: 'popupText',
-		strictPopulate: false,
-	});
+        strictPopulate: false,
+    });
     res.render('campgrounds/index', { campgrounds })
 }
 
@@ -39,7 +39,6 @@ module.exports.showCampground = async (req, res,) => {
     })
 
 	await campground.populate({path: 'reviews', populate: 'author'})
-
     if (!campground) {
         req.flash('error', 'Cannot find that campground!');
         return res.redirect('/campgrounds');
@@ -61,9 +60,7 @@ module.exports.updateCampground = async (req, res) => {
     const { id } = req.params;
     console.log(req.body);
     const campground = await Campground.findByIdAndUpdate(id, { ...req.body.campground });
-		
     const imgs = req.files.map(f => ({ url: f.path, filename: f.filename }));
-		console.log('campground updated')
     campground.images.push(...imgs);
     await campground.save();
     if (req.body.deleteImages) {
@@ -82,4 +79,3 @@ module.exports.deleteCampground = async (req, res) => {
     req.flash('success', 'Successfully deleted campground')
     res.redirect('/campgrounds');
 }
-
