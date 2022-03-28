@@ -14,7 +14,6 @@ db.once("open", () => {
 
 const sample = array => array[Math.floor(Math.random() * array.length)];
 
-
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 300; i++) {
@@ -36,11 +35,11 @@ const seedDB = async () => {
             },
             images: [
                 {
-                    url: 'https://res.cloudinary.com/douqbebwk/image/upload/v1600060601/YelpCamp/ahfnenvca4tha00h2ubt.png',
+                    url: 'https://res.cloudinary.com/dwuxomfr0/image/upload/v1648476962/YelpCamp/ahfnenvca4tha00h2ubt_y1eqbf.png',
                     filename: 'YelpCamp/ahfnenvca4tha00h2ubt'
                 },
                 {
-                    url: 'https://res.cloudinary.com/douqbebwk/image/upload/v1600060601/YelpCamp/ruyoaxgf72nzpi4y6cdi.png',
+                    url: 'https://res.cloudinary.com/dwuxomfr0/image/upload/v1648477003/YelpCamp/Ishaan_DP_bu0nom.jpg',
                     filename: 'YelpCamp/ruyoaxgf72nzpi4y6cdi'
                 }
             ]
